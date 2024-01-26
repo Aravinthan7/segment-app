@@ -1,0 +1,14 @@
+.add-schema-span{
+  border-bottom: 1px solid aquamarine;
+  width: revert-layer;
+  color:rgb(11, 231, 158)
+}
+.add-schema-icon{
+    color:rgb(11, 231, 158)
+}
+.scroll{
+            overflow-x: hidden;
+            overflow-y: auto;
+            max-height:200px;
+           
+}
