@@ -3,7 +3,7 @@ import InputText from "../InputText";
 import Dropdown from "../Dropdown";
 const DynamicControl= forwardRef((props,ref)=>{
 
-    const refCurrentElement=useRef({});
+    const refCurrentElement=useRef([]);
     let ladynamiccontrolprops=Array.isArray(props.custom.controls)===true?props.custom.controls:[]; 
     useImperativeHandle(ref,()=> refCurrentElement.current)
     

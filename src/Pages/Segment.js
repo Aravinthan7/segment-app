@@ -42,20 +42,37 @@ const Segement = () => {
       }
       
     }
+    const webhookmethod=async(value)=>{
+      let url='https://webhook.site/059fb322-5d16-41e0-80bf-24c227ae8cb6';
+      const requestOptions = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ 'value': value })
+
+    };
+   await fetch(url, requestOptions)
+        .then(response => response.json())
+        .then(data => alert(data));
+    }
 
     const segmentSave=()=>{
         let loobject={"segment_name":"","schema":[]}
-        console.log(dynamiccontrolref.current);
+       
         let segmentname=segmentinputref.current.value;
         if(segmentname!==undefined && segmentname!==null && segmentname!=='')
         {
             loobject.segment_name=segmentname;
             let lodynamicctrls=dynamiccontrolref.current;
-            for(let i=0;lodynamicctrls.length<i;i++)
+            for(let i=0;lodynamicctrls.length > i;i++)
             {
-                
+             let lovalue=lodynamicctrls[i].selectedOptions[0].value;
+             if(lovalue!=='')
+             {
+              loobject.schema[lodynamicctrls[i].selectedOptions[0].innerText]= lovalue;
+             }
+              
             }
-           
+            webhookmethod(loobject);
         }
         else
         {
